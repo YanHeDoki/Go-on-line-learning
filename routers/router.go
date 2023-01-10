@@ -29,17 +29,18 @@ func Router() *gin.Engine {
 	g.GET("/educms/front/GetCourseFront/:courseid", handles.GetCourseFront)
 
 	g.GET("/eduservice/listSubject", handles.CourseList)
-	g.Use(handles.SetAuth)
+
+	//g.Use(handles.SetAuth)
 	g.GET("/user/info", handles.Info)
 
 	//教师管理
-	g.GET("/eduservice/teacherlist", handles.IsAdmin, handles.TeacherList)
-	g.POST("/eduservice/teacher/pageTeacherCondition/:page/:limit", handles.IsAdmin, handles.PageTeacherCondition)
-	g.DELETE("/eduservice/delteacherid/:id", handles.IsAdmin, handles.DelTeacherId)
-	g.POST("/eduservice/addteacher", handles.IsAdmin, handles.AddTeacher)
-	g.GET("/eduservice/getteacher/:id", handles.IsAdmin, handles.GetTeacher)
-	g.POST("/eduservice/updateteacher", handles.IsAdmin, handles.UpdateTeacher)
-	g.POST("/eduservice/uploadavatar", handles.IsAdmin, handles.UploadAvatar)
+	g.GET("/eduservice/teacherlist", handles.TeacherList)
+	g.POST("/eduservice/teacher/pageTeacherCondition/:page/:limit", handles.PageTeacherCondition)
+	g.DELETE("/eduservice/delteacherid/:id", handles.DelTeacherId)
+	g.POST("/eduservice/addteacher", handles.AddTeacher)
+	g.GET("/eduservice/getteacher/:id", handles.GetTeacher)
+	g.POST("/eduservice/updateteacher", handles.UpdateTeacher)
+	g.POST("/eduservice/uploadavatar", handles.UploadAvatar)
 
 	//课程管理
 	g.POST("/eduservice/addSubject", handles.Addcourse)
@@ -80,8 +81,8 @@ func Router() *gin.Engine {
 	g.GET("/isBuy/:userid/:courseid", handles.IsBuy)
 
 	//统计
-	g.POST("/countRegister/:day", handles.IsAdmin, handles.CountRegister)
-	g.GET("/showData/:type/:start/:end", handles.IsAdmin, handles.ShowData)
+	g.POST("/countRegister/:day", handles.CountRegister)
+	g.GET("/showData/:type/:start/:end", handles.ShowData)
 
 	//权限
 	g.GET("/admin/acl/permission", handles.GetAllMenu)
