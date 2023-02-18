@@ -18,7 +18,7 @@
 
 ##### vuePage为前端页面，使用Vue 构建来分为前后台，使用的公开的资料如下
 
-前端 和数据库来源：尚硅谷_谷粒学苑-微服务+全栈在线教育实战项目
+前端 和数据库来源：
 
 https://www.bilibili.com/video/BV1dQ4y1A75e?p=1&vd_source=b29c4817c351d0a9330506cdd3f8f007
 
